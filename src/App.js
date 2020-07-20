@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import User from './Components/User';
+import ReduxExamples from './Components/ReduxExamples';
 import './App.css';
 
 class App extends Component {
@@ -27,6 +28,8 @@ class App extends Component {
         <User username={username} hometown='Bikini Bottom' nameFn={this.namechange} />
         {/* Props can be dynamic data like our state or hardcoded like the hometown props we 
         are sending to our User component. */}
+
+        <ReduxExamples />
       </div>
     );
   }
