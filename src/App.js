@@ -1,21 +1,32 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import User from './Components/User';
 import './App.css';
 
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
+
+    //This.state in this component is referring to App. This's context means App.js
     this.state = {
       username: 'Handsome Squidward'
     }
   }
 
-  
+  //Arrow function has implicit binding.
+  namechange = (newName) => {
+    this.setState({ username: newName })
+  }
 
-  render(){
+  render() {
+    const { username } = this.state;
     return (
+      // JSX Elements use attributes. 
       <div className="App">
-        <User />
+        {/* Props are structured like attributes but they are data/functions that we 
+        name and send to child components */}
+        <User username={username} hometown='Bikini Bottom' nameFn={this.namechange} />
+        {/* Props can be dynamic data like our state or hardcoded like the hometown props we 
+        are sending to our User component. */}
       </div>
     );
   }
